@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BARBER-A DOMINICANA | Barbería</title>
+<title>BARBERÍA DOMINICANA</title>
 
 <style>
 
@@ -15,11 +15,13 @@
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
-  background: #0b0b0b;
-  color: #f5f5f5;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background: #080808;
+  color: #ffffff;
+  line-height: 1.5;
 }
+
+/* ================= PORTADA ================= */
 
 header {
   min-height: 100vh;
@@ -27,117 +29,117 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 18px;
+
   background:
-    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.92)),
-    radial-gradient(circle at center, #444 0%, #111 45%, #000 100%);
-  border-bottom: 1px solid #555;
+    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.88)),
+    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=85");
+
+  background-size: cover;
+  background-position: center;
 }
 
 .hero {
-  max-width: 850px;
+  width: 100%;
+  max-width: 900px;
 }
 
-.small-title {
-  letter-spacing: 5px;
+.pequeno {
   font-size: 14px;
-  color: #aaa;
-  margin-bottom: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+  color: #eeeeee;
   text-transform: uppercase;
 }
 
 h1 {
-  font-family: Arial, sans-serif;
-  font-size: clamp(42px, 9vw, 90px);
-  letter-spacing: 5px;
-  line-height: 1;
-  margin-bottom: 25px;
-  color: white;
+  font-size: clamp(38px, 11vw, 88px);
+  line-height: 1.05;
+  letter-spacing: 2px;
   font-weight: 900;
+  color: #ffffff;
 }
 
-.hero p {
-  font-size: clamp(18px, 3vw, 25px);
-  color: #d0d0d0;
-  margin-bottom: 35px;
+.subtitulo {
+  font-size: clamp(18px, 4vw, 26px);
+  margin-top: 25px;
+  color: #dddddd;
 }
 
 .boton {
   display: inline-block;
-  padding: 15px 32px;
-  border: 1px solid white;
-  color: white;
+  margin-top: 30px;
+  padding: 15px 28px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: Arial, sans-serif;
   font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
+.boton:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ================= SECCIONES ================= */
+
 section {
-  padding: 80px 20px;
+  padding: 75px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
-.titulo-seccion {
+.titulo {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
-.titulo-seccion h2 {
-  font-family: Arial, sans-serif;
-  font-size: clamp(30px, 5vw, 48px);
-  text-transform: uppercase;
-  letter-spacing: 3px;
+.titulo h2 {
+  font-size: clamp(30px, 7vw, 50px);
+  letter-spacing: 2px;
   margin-bottom: 12px;
 }
 
 .linea {
   width: 70px;
-  height: 2px;
-  background: white;
+  height: 3px;
+  background: #ffffff;
   margin: auto;
 }
+
+/* ================= SERVICIOS ================= */
 
 .servicios {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 20px;
 }
 
 .servicio {
   background: #151515;
-  border: 1px solid #3a3a3a;
-  padding: 35px 25px;
+  border: 1px solid #444444;
+  padding: 35px 20px;
   text-align: center;
 }
 
-.numero {
-  font-size: 14px;
-  color: #888;
-  letter-spacing: 3px;
+.servicio h3 {
+  font-size: 27px;
   margin-bottom: 15px;
 }
 
-.servicio h3 {
-  font-family: Arial, sans-serif;
-  font-size: 27px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
+.descripcion {
+  color: #aaaaaa;
 }
 
 .precio {
-  font-family: Arial, sans-serif;
-  font-size: 28px;
+  font-size: 29px;
   font-weight: bold;
   margin-top: 20px;
 }
 
-.descripcion {
-  color: #aaa;
-  font-size: 16px;
-}
+/* ================= GALERÍA ================= */
 
 .galeria {
   display: grid;
@@ -146,80 +148,138 @@ section {
 }
 
 .foto {
-  height: 330px;
-  background: linear-gradient(135deg, #292929, #090909);
-  border: 1px solid #333;
+  min-height: 330px;
+  border: 1px solid #444444;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-end;
   padding: 20px;
-  color: #aaa;
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
+
+.foto span {
+  background: rgba(0,0,0,.78);
+  padding: 10px 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ================= TURNOS ================= */
+
+.turnos {
+  max-width: 800px;
+  margin: auto;
+  background: #151515;
+  border: 1px solid #444444;
+  padding: 35px 25px;
+}
+
+.campo {
+  margin-bottom: 22px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 15px;
+  background: #080808;
+  color: #ffffff;
+  border: 1px solid #666666;
+  font-size: 16px;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #ffffff;
+}
+
+.boton-whatsapp {
+  width: 100%;
+  padding: 17px;
+  margin-top: 10px;
+  border: 2px solid #ffffff;
+  background: #ffffff;
+  color: #000000;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.boton-whatsapp:hover {
+  background: #dddddd;
+}
+
+/* ================= INFORMACIÓN ================= */
 
 .informacion {
-  background: #f2f2f2;
-  color: #111;
+  background: #ffffff;
+  color: #111111;
   max-width: none;
   text-align: center;
 }
 
-.informacion-contenido {
-  max-width: 900px;
-  margin: auto;
+.informacion .linea {
+  background: #111111;
 }
 
-.dato {
-  margin: 25px 0;
-}
-
-.dato h3 {
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 15px;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
-}
-
-.dato p {
+.informacion p {
   font-size: 22px;
+  margin: 15px 0 30px;
 }
+
+.dato-titulo {
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+/* ================= WHATSAPP ================= */
 
 .whatsapp {
-  background: #111;
   text-align: center;
-  max-width: none;
+  background: #111111;
 }
 
 .whatsapp h2 {
-  font-family: Arial, sans-serif;
-  font-size: clamp(30px, 5vw, 50px);
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  font-size: clamp(30px, 7vw, 50px);
+  margin-bottom: 15px;
 }
 
-.numero-whatsapp {
-  font-size: 25px;
-  margin-bottom: 30px;
+.numero {
+  color: #cccccc;
+  font-size: 22px;
 }
+
+/* ================= FOOTER ================= */
 
 footer {
-  background: #050505;
-  border-top: 1px solid #333;
   text-align: center;
-  padding: 30px 20px;
-  color: #888;
-  font-family: Arial, sans-serif;
+  padding: 30px 15px;
+  background: #050505;
+  color: #888888;
   font-size: 14px;
 }
+
+/* ================= CELULAR ================= */
 
 @media (max-width: 700px) {
 
   header {
-    min-height: 85vh;
+    min-height: 90vh;
+  }
+
+  h1 {
+    font-size: clamp(34px, 12vw, 65px);
+    letter-spacing: 1px;
   }
 
   .servicios {
@@ -231,15 +291,15 @@ footer {
   }
 
   .foto {
-    height: 280px;
+    min-height: 300px;
   }
 
   section {
-    padding: 60px 18px;
+    padding: 60px 17px;
   }
 
-  h1 {
-    letter-spacing: 3px;
+  .turnos {
+    padding: 28px 18px;
   }
 
 }
@@ -249,25 +309,28 @@ footer {
 
 <body>
 
+
+<!-- ================= PORTADA ================= -->
+
 <header>
 
   <div class="hero">
 
-    <div class="small-title">
-      Barbería masculina
+    <div class="pequeno">
+      BARBERÍA MASCULINA
     </div>
 
     <h1>
-      BARBER-A<br>
+      BARBERÍA<br>
       DOMINICANA
     </h1>
 
-    <p>
-      Estilo. Precisión. Presencia.
+    <p class="subtitulo">
+      Estilo · Precisión · Presencia
     </p>
 
-    <a class="boton" href="#servicios">
-      Ver servicios
+    <a href="#turnos" class="boton">
+      RESERVAR TURNO
     </a>
 
   </div>
@@ -275,11 +338,13 @@ footer {
 </header>
 
 
-<section id="servicios">
+<!-- ================= SERVICIOS ================= -->
 
-  <div class="titulo-seccion">
+<section>
 
-    <h2>Servicios</h2>
+  <div class="titulo">
+
+    <h2>SERVICIOS</h2>
 
     <div class="linea"></div>
 
@@ -290,12 +355,10 @@ footer {
 
     <div class="servicio">
 
-      <div class="numero">01</div>
-
-      <h3>Corte</h3>
+      <h3>CORTE</h3>
 
       <p class="descripcion">
-        Cortes masculinos con terminación prolija y personalizada.
+        Corte masculino con terminación prolija y personalizada.
       </p>
 
       <div class="precio">
@@ -307,12 +370,10 @@ footer {
 
     <div class="servicio">
 
-      <div class="numero">02</div>
-
-      <h3>Global</h3>
+      <h3>GLOBAL</h3>
 
       <p class="descripcion">
-        Coloración global para un cambio completo y definido.
+        Coloración global para un cambio completo.
       </p>
 
       <div class="precio">
@@ -324,9 +385,7 @@ footer {
 
     <div class="servicio">
 
-      <div class="numero">03</div>
-
-      <h3>Claritos</h3>
+      <h3>CLARITOS</h3>
 
       <p class="descripcion">
         Iluminación y mechas para hombres.
@@ -343,11 +402,13 @@ footer {
 </section>
 
 
+<!-- ================= TRABAJOS ================= -->
+
 <section>
 
-  <div class="titulo-seccion">
+  <div class="titulo">
 
-    <h2>Trabajos</h2>
+    <h2>NUESTROS TRABAJOS</h2>
 
     <div class="linea"></div>
 
@@ -356,69 +417,269 @@ footer {
 
   <div class="galeria">
 
-    <div class="foto">
-      Corte masculino
+    <div
+      class="foto"
+      style="background-image:url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85');">
+
+      <span>
+        CORTE MASCULINO
+      </span>
+
     </div>
 
-    <div class="foto">
-      Claritos
+
+    <div
+      class="foto"
+      style="background-image:url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85');">
+
+      <span>
+        CLARITOS
+      </span>
+
     </div>
 
-    <div class="foto">
-      Global
+
+    <div
+      class="foto"
+      style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85');">
+
+      <span>
+        GLOBAL
+      </span>
+
     </div>
 
   </div>
 
 </section>
 
+
+<!-- ================= RESERVA ================= -->
+
+<section id="turnos">
+
+  <div class="titulo">
+
+    <h2>RESERVÁ TU TURNO</h2>
+
+    <div class="linea"></div>
+
+  </div>
+
+
+  <div class="turnos">
+
+
+    <!-- NOMBRE Y APELLIDO -->
+
+    <div class="campo">
+
+      <label for="nombre">
+        NOMBRE Y APELLIDO
+      </label>
+
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Escribí tu nombre y apellido">
+
+    </div>
+
+
+    <!-- SERVICIO -->
+
+    <div class="campo">
+
+      <label for="servicio">
+        SERVICIO
+      </label>
+
+      <select id="servicio">
+
+        <option value="">
+          Elegí un servicio
+        </option>
+
+        <option value="Corte - $18.000">
+          Corte - $18.000
+        </option>
+
+        <option value="Claritos - $50.000">
+          Claritos - $50.000
+        </option>
+
+        <option value="Global - $60.000">
+          Global - $60.000
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- DÍA -->
+
+    <div class="campo">
+
+      <label for="fecha">
+        DÍA
+      </label>
+
+      <input
+        type="date"
+        id="fecha">
+
+    </div>
+
+
+    <!-- HORARIO -->
+
+    <div class="campo">
+
+      <label for="hora">
+        HORARIO
+      </label>
+
+      <input
+        type="time"
+        id="hora">
+
+    </div>
+
+
+    <!-- BARBERO -->
+
+    <div class="campo">
+
+      <label for="barbero">
+        BARBERO
+      </label>
+
+      <select id="barbero">
+
+        <option value="">
+          Elegí un barbero
+        </option>
+
+        <option value="Uriel">
+          Uriel
+        </option>
+
+        <option value="Erick">
+          Erick
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- FORMA DE PAGO -->
+
+    <div class="campo">
+
+      <label for="pago">
+        FORMA DE PAGO
+      </label>
+
+      <select id="pago">
+
+        <option value="">
+          Elegí una forma de pago
+        </option>
+
+        <option value="Efectivo">
+          Efectivo
+        </option>
+
+        <option value="Mercado Pago">
+          Mercado Pago
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- DIRECCIÓN -->
+
+    <div class="campo">
+
+      <label for="direccion">
+        DIRECCIÓN
+      </label>
+
+      <input
+        type="text"
+        id="direccion"
+        value="Avenida Mitre 5103"
+        readonly>
+
+    </div>
+
+
+    <!-- CONFIRMAR -->
+
+    <button
+      class="boton-whatsapp"
+      onclick="enviarWhatsApp()">
+
+      CONFIRMAR TURNO POR WHATSAPP
+
+    </button>
+
+
+  </div>
+
+</section>
+
+
+<!-- ================= INFORMACIÓN ================= -->
 
 <section class="informacion">
 
-  <div class="informacion-contenido">
+  <div class="titulo">
 
-    <div class="titulo-seccion">
+    <h2>ENCONTRANOS</h2>
 
-      <h2>Encontranos</h2>
+    <div class="linea"></div>
 
-      <div class="linea"></div>
+  </div>
 
+
+  <div>
+
+    <div class="dato-titulo">
+      DIRECCIÓN
     </div>
 
+    <p>
+      Avenida Mitre 5103
+    </p>
 
-    <div class="dato">
 
-      <h3>Ubicación</h3>
-
-      <p>
-        Avenida Mitre 5103
-      </p>
-
+    <div class="dato-titulo">
+      WHATSAPP
     </div>
 
-
-    <div class="dato">
-
-      <h3>Contacto</h3>
-
-      <p>
-        1132164988
-      </p>
-
-    </div>
+    <p>
+      1132164988
+    </p>
 
   </div>
 
 </section>
 
+
+<!-- ================= WHATSAPP ================= -->
 
 <section class="whatsapp">
 
   <h2>
-    Reservá tu turno
+    ¿TENÉS ALGUNA CONSULTA?
   </h2>
 
-  <p class="numero-whatsapp">
+  <p class="numero">
     1132164988
   </p>
 
@@ -426,17 +687,110 @@ footer {
     class="boton"
     href="https://wa.me/541132164988"
     target="_blank">
-    Contactar por WhatsApp
+
+    ESCRIBINOS POR WHATSAPP
+
   </a>
 
 </section>
 
 
+<!-- ================= PIE ================= -->
+
 <footer>
 
-  © 2026 BARBER-A DOMINICANA
+  © 2026 BARBERÍA DOMINICANA
 
 </footer>
+
+
+<script>
+
+function enviarWhatsApp() {
+
+  const nombre =
+    document.getElementById("nombre").value.trim();
+
+  const servicio =
+    document.getElementById("servicio").value;
+
+  const fecha =
+    document.getElementById("fecha").value;
+
+  const hora =
+    document.getElementById("hora").value;
+
+  const barbero =
+    document.getElementById("barbero").value;
+
+  const pago =
+    document.getElementById("pago").value;
+
+
+  if (
+    nombre === "" ||
+    servicio === "" ||
+    fecha === "" ||
+    hora === "" ||
+    barbero === "" ||
+    pago === ""
+  ) {
+
+    alert(
+      "Por favor completá todos los datos para solicitar el turno."
+    );
+
+    return;
+
+  }
+
+
+  const fechaFormateada =
+    fecha.split("-").reverse().join("/");
+
+
+  const mensaje =
+
+`*SOLICITUD DE TURNO - BARBERÍA DOMINICANA*
+
+👤 Nombre y apellido:
+${nombre}
+
+💈 Servicio:
+${servicio}
+
+📅 Día:
+${fechaFormateada}
+
+🕐 Horario:
+${hora}
+
+✂️ Barbero:
+${barbero}
+
+💳 Forma de pago:
+${pago}
+
+📍 Dirección:
+Avenida Mitre 5103`;
+
+
+  const telefono =
+    "541132164988";
+
+
+  const url =
+    "https://wa.me/" +
+    telefono +
+    "?text=" +
+    encodeURIComponent(mensaje);
+
+
+  window.open(url, "_blank");
+
+}
+
+</script>
 
 
 </body>
