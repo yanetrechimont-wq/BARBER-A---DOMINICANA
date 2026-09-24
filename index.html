@@ -1,1334 +1,1424 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BARBERÍA DOMINICANA</title>
-
-<style>
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background: #080808;
-  color: #fff;
-  line-height: 1.5;
-}
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Barbería Dominicana</title>
 
-/* ================= APERTURA ================= */
+  <style>
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-#apertura {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
+    html{
+      scroll-behavior:smooth;
+    }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    body{
+      background:#050505;
+      color:#fff;
+      font-family:Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --dorado:#d4af37;
+      --dorado-claro:#ffe99a;
+      --dorado-brillante:#fff3b0;
+      --dorado-oscuro:#806015;
+      --negro:#050505;
+    }
+
+    /* =========================
+       EFECTO DORADO
+    ========================= */
 
-  background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.90)),
-    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=85");
+    .gold-text{
+      background:linear-gradient(
+        90deg,
+        var(--dorado-oscuro),
+        var(--dorado),
+        var(--dorado-brillante),
+        var(--dorado),
+        var(--dorado-oscuro)
+      );
 
-  background-size: cover;
-  background-position: center;
-
-  transition: opacity .8s ease, visibility .8s ease;
-}
-
-#apertura.oculta {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.apertura-contenido {
-  width: 90%;
-  max-width: 700px;
-}
-
-.apertura-pequeno {
-  font-size: 13px;
-  letter-spacing: 5px;
-  color: #ddd;
-  margin-bottom: 20px;
-}
-
-.apertura-titulo {
-  font-size: clamp(42px, 11vw, 85px);
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.apertura-subtitulo {
-  margin-top: 22px;
-  color: #ddd;
-  font-size: 18px;
-  letter-spacing: 2px;
-}
-
-.boton-abrir {
-  margin-top: 38px;
-  padding: 17px 42px;
-
-  background: #fff;
-  color: #000;
-
-  border: 2px solid #fff;
-
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2px;
-
-  cursor: pointer;
-}
-
-.boton-abrir:hover {
-  background: transparent;
-  color: #fff;
-}
-
-
-/* ================= MUSICA ================= */
-
-#musica {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* ================= PORTADA ================= */
-
-header {
-  min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 30px 18px;
-
-  background:
-    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.88)),
-    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=85");
-
-  background-size: cover;
-  background-position: center;
-}
-
-.hero {
-  width: 100%;
-  max-width: 900px;
-}
-
-.pequeno {
-  font-size: 14px;
-  letter-spacing: 4px;
-  margin-bottom: 25px;
-  color: #eee;
-  text-transform: uppercase;
-}
-
-h1 {
-  font-size: clamp(38px, 11vw, 88px);
-  line-height: 1.05;
-  letter-spacing: 2px;
-  font-weight: 900;
-}
-
-.subtitulo {
-  font-size: clamp(18px, 4vw, 26px);
-  margin-top: 25px;
-  color: #ddd;
-}
-
+      background-size:300% auto;
 
-/* ================= SECCIONES ================= */
+      -webkit-background-clip:text;
+      background-clip:text;
 
-section {
-  padding: 75px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+      -webkit-text-fill-color:transparent;
 
-.titulo {
-  text-align: center;
-  margin-bottom: 45px;
-}
+      animation:goldMove 5s linear infinite;
+    }
 
-.titulo h2 {
-  font-size: clamp(30px, 7vw, 50px);
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
+    @keyframes goldMove{
 
-.linea {
-  width: 70px;
-  height: 3px;
-  background: #fff;
-  margin: auto;
-}
+      0%{
+        background-position:0% center;
+      }
+
+      100%{
+        background-position:300% center;
+      }
+
+    }
 
+    /* =========================
+       EFECTO ESPEJO
+    ========================= */
 
-/* ================= SERVICIOS ================= */
+    .mirror{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mirror::after{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:60%;
+      height:100%;
 
-.servicios {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+      background:linear-gradient(
+        100deg,
+        transparent,
+        rgba(255,255,255,.28),
+        transparent
+      );
+
+      transform:skewX(-20deg);
+
+      transition:.7s;
+
+      pointer-events:none;
+    }
+
+    .mirror:hover::after{
+      left:140%;
+    }
 
-.servicio {
-  background: #151515;
-  border: 1px solid #444;
-  padding: 35px 20px;
-  text-align: center;
-}
+    /* =========================
+       APERTURA
+    ========================= */
 
-.servicio h3 {
-  font-size: 27px;
-  margin-bottom: 15px;
-}
+    #opening{
+      position:fixed;
+      inset:0;
+      z-index:9999;
 
-.descripcion {
-  color: #aaa;
-}
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-.precio {
-  font-size: 29px;
-  font-weight: bold;
-  margin-top: 20px;
-}
+      background:
+        radial-gradient(
+          circle at center,
+          #222 0%,
+          #080808 55%,
+          #000 100%
+        );
 
+      padding:25px;
+    }
 
-/* ================= GALERÍA ================= */
+    .opening-content{
+      width:100%;
+      max-width:600px;
 
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
+      text-align:center;
 
-.foto {
-  min-height: 330px;
-  border: 1px solid #444;
+      padding:55px 25px;
 
-  background-size: cover;
-  background-position: center;
+      border:1px solid var(--dorado);
 
-  display: flex;
-  align-items: flex-end;
+      border-radius:20px;
 
-  padding: 20px;
-}
+      background:rgba(0,0,0,.85);
 
-.foto span {
-  background: rgba(0,0,0,.78);
-  padding: 10px 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+      box-shadow:
+        0 0 35px rgba(212,175,55,.25);
+    }
 
+    .welcome{
+      color:#fff;
+      letter-spacing:6px;
+      font-size:.9rem;
+      margin:25px 0 15px;
+    }
 
-/* ================= RESERVA ================= */
+    .opening-content h1{
+      font-size:clamp(2rem,8vw,4rem);
+      line-height:1.05;
+    }
 
-.turnos {
-  max-width: 800px;
-  margin: auto;
+    .opening-subtitle{
+      color:#ddd;
+      margin:20px 0 30px;
+      font-size:1.1rem;
+    }
 
-  background: #151515;
-  border: 1px solid #444;
+    .gold-line{
+      width:100px;
+      height:2px;
 
-  padding: 35px 25px;
-}
+      margin:18px auto;
 
-.campo {
-  margin-bottom: 22px;
-}
+      background:linear-gradient(
+        90deg,
+        transparent,
+        var(--dorado),
+        var(--dorado-claro),
+        var(--dorado),
+        transparent
+      );
+    }
+
+    .open-button{
+      border:1px solid var(--dorado);
+
+      border-radius:30px;
+
+      padding:15px 40px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #806015,
+          #d4af37,
+          #fff3b0,
+          #d4af37
+        );
+
+      color:#000;
+
+      font-weight:900;
+
+      cursor:pointer;
 
-.campo label {
-  display: block;
-  margin-bottom: 8px;
+      font-size:1rem;
+
+      box-shadow:
+        0 0 20px rgba(212,175,55,.3);
+
+      transition:.3s;
+    }
 
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+    .open-button:hover{
+      transform:scale(1.05);
+    }
 
-.campo input,
-.campo select {
-  width: 100%;
+    /* =========================
+       HERO
+    ========================= */
 
-  padding: 15px;
+    .hero{
+      min-height:90vh;
 
-  background: #080808;
-  color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-  border: 1px solid #666;
+      text-align:center;
 
-  font-size: 16px;
-}
+      background:
+        linear-gradient(
+          rgba(0,0,0,.65),
+          rgba(0,0,0,.85)
+        ),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=85");
 
-.campo input:focus,
-.campo select:focus {
-  outline: none;
-  border-color: #fff;
-}
+      background-size:cover;
+      background-position:center;
 
+      padding:40px 20px;
 
-/* ================= DOMICILIO ================= */
+      border-bottom:1px solid rgba(212,175,55,.5);
+    }
 
-#campoDomicilio {
-  display: none;
-}
+    .hero-content{
+      max-width:900px;
+    }
 
+    .hero h1{
+      font-size:clamp(3rem,10vw,7rem);
+      line-height:.95;
+      letter-spacing:4px;
+      text-shadow:0 0 25px rgba(212,175,55,.2);
+    }
 
-/* ================= PROPINA ================= */
+    .hero p{
+      color:#eee;
+      font-size:1.1rem;
+      letter-spacing:3px;
+    }
 
-.propina {
-  margin-top: 10px;
-  margin-bottom: 25px;
+    .stars{
+      color:var(--dorado-claro);
+      font-size:1.5rem;
+      letter-spacing:10px;
+      margin:15px 0;
+    }
 
-  padding: 25px 20px;
+    /* =========================
+       SECCIONES
+    ========================= */
 
-  background: #101010;
-  border: 1px solid #444;
+    .section{
+      padding:80px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
 
-  text-align: center;
-}
+    .section-title{
+      text-align:center;
+      font-size:clamp(2rem,5vw,3rem);
+      letter-spacing:2px;
+      margin-bottom:15px;
+    }
 
-.propina h3 {
-  font-size: 23px;
-  margin-bottom: 8px;
-}
+    .section-subtitle{
+      text-align:center;
+      color:#aaa;
+      margin-bottom:30px;
+    }
 
-.propina p {
-  color: #aaa;
-  margin-bottom: 18px;
-}
+    /* =========================
+       SERVICIOS
+    ========================= */
 
-.opciones-propina {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
+    .services{
+      display:grid;
 
-.opciones-propina label {
-  display: block;
+      grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
 
-  padding: 13px 8px;
+      gap:20px;
 
-  border: 1px solid #555;
+      margin-top:40px;
+    }
 
-  cursor: pointer;
-}
+    .service-card{
+      border:1px solid rgba(212,175,55,.45);
 
-.opciones-propina input {
-  display: none;
-}
+      border-radius:20px;
 
-.opciones-propina span {
-  display: block;
-  padding: 3px;
-}
+      padding:35px 20px;
 
-.opciones-propina input:checked + span {
-  background: #fff;
-  color: #000;
-}
+      text-align:center;
 
+      background:
+        linear-gradient(
+          145deg,
+          #101010,
+          #050505
+        );
 
-/* ================= BOTON WHATSAPP ================= */
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.5);
 
-.boton-whatsapp {
-  width: 100%;
+      transition:.3s;
+    }
 
-  padding: 17px;
-  margin-top: 10px;
+    .service-card:hover{
+      transform:translateY(-8px);
 
-  border: 2px solid #fff;
+      border-color:var(--dorado);
 
-  background: #fff;
-  color: #000;
+      box-shadow:
+        0 15px 35px rgba(212,175,55,.18);
+    }
 
-  font-size: 17px;
-  font-weight: bold;
+    .service-card h3{
+      color:var(--dorado-claro);
+      font-size:1.15rem;
+      margin-bottom:15px;
+    }
 
-  cursor: pointer;
-  letter-spacing: 1px;
-}
+    .service-card p{
+      font-size:1.5rem;
+      font-weight:900;
+      color:#fff;
+    }
 
-.boton-whatsapp:hover {
-  background: #ddd;
-}
+    /* =========================
+       GALERÍA
+    ========================= */
 
+    .gallery{
+      display:grid;
 
-/* ================= UBICACION ================= */
+      grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
 
-.ubicacion {
-  background: #fff;
-  color: #111;
+      gap:20px;
 
-  max-width: none;
+      margin-top:40px;
+    }
 
-  text-align: center;
-}
+    .gallery-item{
+      height:330px;
 
-.ubicacion .linea {
-  background: #111;
-}
+      border-radius:20px;
 
-.direccion-principal {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 15px 0 5px;
-}
+      border:1px solid rgba(212,175,55,.4);
 
-.localidad {
-  font-size: 20px;
-  color: #444;
-  margin-bottom: 25px;
-}
+      overflow:hidden;
 
-.mapa {
-  width: 100%;
-  max-width: 850px;
-  height: 350px;
+      background:#111;
+    }
 
-  margin: 30px auto 0;
+    .gallery-item img{
+      width:100%;
+      height:100%;
 
-  border: 0;
-  display: block;
-}
+      object-fit:cover;
 
-.boton-maps {
-  display: inline-block;
+      display:block;
 
-  margin-top: 25px;
-  padding: 15px 25px;
+      transition:.5s;
+    }
 
-  background: #111;
-  color: #fff;
+    .gallery-item:hover img{
+      transform:scale(1.06);
+    }
 
-  text-decoration: none;
+    /* =========================
+       RESERVA
+    ========================= */
 
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+    .reservation-section{
+      max-width:900px;
+    }
 
+    .reservation-box{
+      margin-top:40px;
 
-/* ================= WHATSAPP ================= */
+      padding:35px 25px;
 
-.whatsapp {
-  text-align: center;
-  background: #111;
-}
+      border:1px solid rgba(212,175,55,.5);
 
-.whatsapp h2 {
-  font-size: clamp(30px, 7vw, 50px);
-  margin-bottom: 15px;
-}
+      border-radius:20px;
 
-.numero {
-  color: #ccc;
-  font-size: 22px;
-}
+      background:
+        linear-gradient(
+          145deg,
+          #111,
+          #050505
+        );
 
-.boton {
-  display: inline-block;
+      box-shadow:
+        0 0 35px rgba(212,175,55,.1);
+    }
 
-  margin-top: 30px;
-  padding: 15px 28px;
+    #reservationForm{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
 
-  border: 2px solid #fff;
+    #reservationForm label{
+      color:var(--dorado-claro);
 
-  color: #fff;
-  text-decoration: none;
+      font-weight:bold;
 
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+      margin-top:12px;
+    }
 
-.boton:hover {
-  background: #fff;
-  color: #000;
-}
+    #reservationForm input,
+    #reservationForm select{
 
+      width:100%;
 
-/* ================= FOOTER ================= */
+      padding:15px;
 
-footer {
-  text-align: center;
+      border-radius:12px;
 
-  padding: 30px 15px;
+      border:1px solid #555;
 
-  background: #050505;
+      background:#111;
 
-  color: #888;
+      color:#fff;
 
-  font-size: 14px;
-}
+      outline:none;
 
+      font-size:1rem;
+    }
 
-/* ================= CELULAR ================= */
+    #reservationForm input:focus,
+    #reservationForm select:focus{
 
-@media (max-width: 700px) {
+      border-color:var(--dorado);
 
-  header {
-    min-height: 90vh;
-  }
+      box-shadow:
+        0 0 10px rgba(212,175,55,.2);
+    }
 
-  h1 {
-    font-size: clamp(34px, 12vw, 65px);
-    letter-spacing: 1px;
-  }
+    .reserve-button{
 
-  .servicios {
-    grid-template-columns: 1fr;
-  }
+      margin-top:25px;
 
-  .galeria {
-    grid-template-columns: 1fr;
-  }
+      padding:17px;
 
-  .foto {
-    min-height: 300px;
-  }
+      border:none;
 
-  section {
-    padding: 60px 17px;
-  }
+      border-radius:30px;
 
-  .turnos {
-    padding: 28px 18px;
-  }
+      background:
+        linear-gradient(
+          135deg,
+          #806015,
+          #d4af37,
+          #fff3b0,
+          #d4af37
+        );
 
-  .opciones-propina {
-    grid-template-columns: 1fr 1fr;
-  }
+      color:#000;
 
-  .mapa {
-    height: 300px;
-  }
+      font-weight:900;
 
-}
+      font-size:1rem;
 
-</style>
+      cursor:pointer;
+
+      box-shadow:
+        0 0 20px rgba(212,175,55,.25);
+
+      transition:.3s;
+    }
+
+    .reserve-button:hover{
+      transform:scale(1.03);
+    }
+
+    /* =========================
+       DOMICILIO
+    ========================= */
+
+    #direccionBox{
+      margin-top:5px;
+    }
+
+    /* =========================
+       MAPA
+    ========================= */
+
+    .map{
+      margin-top:40px;
+
+      border:1px solid rgba(212,175,55,.5);
+
+      border-radius:20px;
+
+      background:#090909;
+
+      box-shadow:
+        0 0 25px rgba(212,175,55,.25);
+
+      overflow:hidden;
+    }
+
+    .map iframe{
+      width:100%;
+      height:320px;
+      border:0;
+      display:block;
+    }
+
+    .map-info{
+      padding:22px;
+      text-align:center;
+    }
+
+    .map-info h3{
+      color:var(--dorado-claro);
+      font-size:1.5rem;
+      margin-bottom:8px;
+    }
+
+    .map-info p{
+      color:#ddd;
+      line-height:1.6;
+      margin-bottom:18px;
+    }
+
+    .map-button{
+      display:inline-block;
+
+      padding:14px 24px;
+
+      border-radius:30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #806015,
+          #d4af37,
+          #fff3b0,
+          #d4af37
+        );
+
+      color:#000;
+
+      text-decoration:none;
+
+      font-weight:900;
+
+      box-shadow:
+        0 0 20px rgba(212,175,55,.35);
+
+      transition:.3s;
+    }
+
+    .map-button:hover{
+      transform:scale(1.05);
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp-section{
+      text-align:center;
+      padding:60px 20px;
+    }
+
+    .whatsapp-section h2{
+      color:var(--dorado-claro);
+      margin-bottom:15px;
+      font-size:2rem;
+    }
+
+    .whatsapp-section p{
+      color:#ccc;
+      margin-bottom:25px;
+    }
+
+    .whatsapp-button{
+      display:inline-block;
+
+      padding:16px 30px;
+
+      border-radius:30px;
+
+      background:#25D366;
+
+      color:white;
+
+      text-decoration:none;
+
+      font-weight:900;
+
+      font-size:1.05rem;
+
+      box-shadow:
+        0 0 20px rgba(37,211,102,.3);
+
+      transition:.3s;
+    }
+
+    .whatsapp-button:hover{
+      transform:scale(1.05);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      text-align:center;
+
+      padding:35px 20px;
+
+      border-top:
+        1px solid rgba(212,175,55,.4);
+
+      color:#999;
+    }
+
+    footer strong{
+      display:block;
+
+      color:var(--dorado-claro);
+
+      font-size:1.2rem;
+
+      margin-bottom:8px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:700px){
+
+      .hero{
+        min-height:80vh;
+      }
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .gallery-item{
+        height:280px;
+      }
+
+      .map iframe{
+        height:280px;
+      }
+
+      .whatsapp-section h2{
+        font-size:1.7rem;
+      }
+
+      .opening-content{
+        padding:45px 20px;
+      }
+
+    }
+
+  </style>
+
 </head>
-
 
 <body>
 
+  <!-- =========================
+       APERTURA
+  ========================= -->
 
-<!-- ================= APERTURA ================= -->
+  <div id="opening">
 
-<div id="apertura">
+    <div class="opening-content mirror">
 
-  <div class="apertura-contenido">
+      <div class="gold-line"></div>
 
-    <div class="apertura-pequeno">
-      BIENVENIDO
+      <p class="welcome">
+        BIENVENIDO
+      </p>
+
+      <h1 class="gold-text">
+        BARBERÍA DOMINICANA
+      </h1>
+
+      <p class="opening-subtitle">
+        Tu estilo comienza acá
+      </p>
+
+      <button
+        class="open-button mirror"
+        onclick="abrirPagina()">
+
+        ABRIR
+
+      </button>
+
     </div>
-
-    <div class="apertura-titulo">
-      BARBERÍA<br>
-      DOMINICANA
-    </div>
-
-    <div class="apertura-subtitulo">
-      Tu estilo comienza acá
-    </div>
-
-    <button
-      class="boton-abrir"
-      onclick="abrirBarberia()">
-
-      ABRIR
-
-    </button>
 
   </div>
 
-</div>
 
-
-<!-- ================= MUSICA ================= -->
-
-<div id="musica">
+  <!-- =========================
+       MÚSICA
+  ========================= -->
 
   <iframe
-    id="youtubePlayer"
-    width="1"
-    height="1"
-    src=""
+    id="music"
+    width="0"
+    height="0"
     frameborder="0"
-    allow="autoplay; encrypted-media">
+    allow="autoplay">
   </iframe>
 
-</div>
 
+  <!-- =========================
+       HERO
+  ========================= -->
 
-<!-- ================= PORTADA ================= -->
+  <header class="hero mirror">
 
-<header>
+    <div class="hero-content">
 
-  <div class="hero">
-
-    <div class="pequeno">
-      BARBERÍA MASCULINA
-    </div>
-
-    <h1>
-      BARBERÍA<br>
-      DOMINICANA
-    </h1>
-
-    <p class="subtitulo">
-      Estilo · Precisión · Presencia
-    </p>
-
-  </div>
-
-</header>
-
-
-<!-- ================= SERVICIOS ================= -->
-
-<section>
-
-  <div class="titulo">
-
-    <h2>SERVICIOS</h2>
-
-    <div class="linea"></div>
-
-  </div>
-
-
-  <div class="servicios">
-
-
-    <div class="servicio">
-
-      <h3>CORTE</h3>
-
-      <p class="descripcion">
-        Corte masculino con terminación prolija y personalizada.
-      </p>
-
-      <div class="precio">
-        $18.000
+      <div class="stars">
+        ✦ ✧ ✦
       </div>
 
-    </div>
-
-
-    <div class="servicio">
-
-      <h3>CORTE + BARBA</h3>
-
-      <p class="descripcion">
-        Corte masculino acompañado de arreglo de barba.
-      </p>
-
-      <div class="precio">
-        $22.000
-      </div>
-
-    </div>
-
-
-    <div class="servicio">
-
-      <h3>BARBA</h3>
-
-      <p class="descripcion">
-        Perfilado y arreglo de barba.
-      </p>
-
-      <div class="precio">
-        $8.000
-      </div>
-
-    </div>
-
-
-    <div class="servicio">
-
-      <h3>A DOMICILIO</h3>
-
-      <p class="descripcion">
-        Servicio de barbería a domicilio.
-      </p>
-
-      <div class="precio">
-        $20.000
-      </div>
-
-    </div>
-
-
-    <div class="servicio">
-
-      <h3>GLOBAL</h3>
-
-      <p class="descripcion">
-        Coloración global para un cambio completo.
-      </p>
-
-      <div class="precio">
-        $60.000
-      </div>
-
-    </div>
-
-
-    <div class="servicio">
-
-      <h3>CLARITOS</h3>
-
-      <p class="descripcion">
-        Iluminación y mechas para hombres.
-      </p>
-
-      <div class="precio">
-        $50.000
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- ================= TRABAJOS ================= -->
-
-<section>
-
-  <div class="titulo">
-
-    <h2>NUESTROS TRABAJOS</h2>
-
-    <div class="linea"></div>
-
-  </div>
-
-
-  <div class="galeria">
-
-
-    <div
-      class="foto"
-      style="background-image:url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85');">
-
-      <span>
-        CORTE MASCULINO
-      </span>
-
-    </div>
-
-
-    <div
-      class="foto"
-      style="background-image:url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85');">
-
-      <span>
-        CLARITOS
-      </span>
-
-    </div>
-
-
-    <div
-      class="foto"
-      style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85');">
-
-      <span>
-        GLOBAL
-      </span>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- ================= RESERVA ================= -->
-
-<section id="turnos">
-
-  <div class="titulo">
-
-    <h2>RESERVÁ TU TURNO</h2>
-
-    <div class="linea"></div>
-
-  </div>
-
-
-  <div class="turnos">
-
-
-    <!-- NOMBRE -->
-
-    <div class="campo">
-
-      <label for="nombre">
-        NOMBRE Y APELLIDO
-      </label>
-
-      <input
-        type="text"
-        id="nombre"
-        placeholder="Escribí tu nombre y apellido">
-
-    </div>
-
-
-    <!-- SERVICIO -->
-
-    <div class="campo">
-
-      <label for="servicio">
-        SERVICIO
-      </label>
-
-      <select
-        id="servicio"
-        onchange="mostrarDomicilio()">
-
-        <option value="">
-          Elegí un servicio
-        </option>
-
-        <option value="Corte - $18.000">
-          Corte - $18.000
-        </option>
-
-        <option value="Corte con barba - $22.000">
-          Corte con barba - $22.000
-        </option>
-
-        <option value="Barba - $8.000">
-          Barba - $8.000
-        </option>
-
-        <option value="A domicilio - $20.000">
-          A domicilio - $20.000
-        </option>
-
-        <option value="Claritos - $50.000">
-          Claritos - $50.000
-        </option>
-
-        <option value="Global - $60.000">
-          Global - $60.000
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <!-- DIRECCIÓN DEL CLIENTE -->
-
-    <div
-      class="campo"
-      id="campoDomicilio">
-
-      <label for="direccionCliente">
-        DIRECCIÓN PARA EL SERVICIO A DOMICILIO
-      </label>
-
-      <input
-        type="text"
-        id="direccionCliente"
-        placeholder="Escribí tu dirección">
-
-    </div>
-
-
-    <!-- FECHA -->
-
-    <div class="campo">
-
-      <label for="fecha">
-        DÍA
-      </label>
-
-      <input
-        type="date"
-        id="fecha">
-
-    </div>
-
-
-    <!-- HORARIO -->
-
-    <div class="campo">
-
-      <label for="hora">
-        HORARIO
-      </label>
-
-      <input
-        type="time"
-        id="hora">
-
-    </div>
-
-
-    <!-- BARBERO -->
-
-    <div class="campo">
-
-      <label for="barbero">
-        BARBERO
-      </label>
-
-      <select id="barbero">
-
-        <option value="">
-          Elegí un barbero
-        </option>
-
-        <option value="Uriel">
-          Uriel
-        </option>
-
-        <option value="Erick">
-          Erick
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <!-- PAGO -->
-
-    <div class="campo">
-
-      <label for="pago">
-        FORMA DE PAGO
-      </label>
-
-      <select id="pago">
-
-        <option value="">
-          Elegí una forma de pago
-        </option>
-
-        <option value="Efectivo">
-          Efectivo
-        </option>
-
-        <option value="Mercado Pago">
-          Mercado Pago
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <!-- PROPINA -->
-
-    <div class="propina">
-
-      <h3>¿QUERÉS DEJAR PROPINA?</h3>
+      <h1 class="gold-text">
+        BARBERÍA<br>
+        DOMINICANA
+      </h1>
+
+      <div class="gold-line"></div>
 
       <p>
-        Podés agradecer el trabajo del barbero con una propina.
+        Cortes · Barba · Claritos · Global
       </p>
 
+      <div class="stars">
+        ✦ ✧ ✦
+      </div>
 
-      <div class="opciones-propina">
+    </div>
 
-        <label>
-
-          <input
-            type="radio"
-            name="propina"
-            value="Sin propina"
-            checked>
-
-          <span>
-            Sin propina
-          </span>
-
-        </label>
+  </header>
 
 
-        <label>
+  <!-- =========================
+       SERVICIOS
+  ========================= -->
 
-          <input
-            type="radio"
-            name="propina"
-            value="$1.000">
+  <section class="section">
 
-          <span>
-            $1.000
-          </span>
+    <h2 class="section-title gold-text">
+      NUESTROS SERVICIOS
+    </h2>
 
-        </label>
+    <div class="services">
 
+      <div class="service-card mirror">
 
-        <label>
+        <h3>
+          CORTE
+        </h3>
 
-          <input
-            type="radio"
-            name="propina"
-            value="$2.000">
+        <p>
+          $18.000
+        </p>
 
-          <span>
-            $2.000
-          </span>
-
-        </label>
+      </div>
 
 
-        <label>
+      <div class="service-card mirror">
 
-          <input
-            type="radio"
-            name="propina"
-            value="$5.000">
+        <h3>
+          CORTE CON BARBA
+        </h3>
 
-          <span>
-            $5.000
-          </span>
+        <p>
+          $22.000
+        </p>
 
-        </label>
+      </div>
+
+
+      <div class="service-card mirror">
+
+        <h3>
+          BARBA
+        </h3>
+
+        <p>
+          $8.000
+        </p>
+
+      </div>
+
+
+      <div class="service-card mirror">
+
+        <h3>
+          A DOMICILIO
+        </h3>
+
+        <p>
+          $20.000
+        </p>
+
+      </div>
+
+
+      <div class="service-card mirror">
+
+        <h3>
+          GLOBAL
+        </h3>
+
+        <p>
+          $60.000
+        </p>
+
+      </div>
+
+
+      <div class="service-card mirror">
+
+        <h3>
+          CLARITOS
+        </h3>
+
+        <p>
+          $50.000
+        </p>
 
       </div>
 
     </div>
 
-
-    <!-- CONFIRMAR -->
-
-    <button
-      class="boton-whatsapp"
-      onclick="enviarWhatsApp()">
-
-      CONFIRMAR TURNO POR WHATSAPP
-
-    </button>
-
-  </div>
-
-</section>
+  </section>
 
 
-<!-- ================= UBICACIÓN ================= -->
+  <!-- =========================
+       GALERÍA
+  ========================= -->
 
-<section class="ubicacion">
+  <section class="section">
 
-  <div class="titulo">
+    <h2 class="section-title gold-text">
+      NUESTROS TRABAJOS
+    </h2>
 
-    <h2>ENCONTRANOS</h2>
-
-    <div class="linea"></div>
-
-  </div>
+    <div class="gallery">
 
 
-  <div>
+      <div class="gallery-item mirror">
 
-    <div class="dato-titulo">
-      DIRECCIÓN
+        <img
+          src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85"
+          alt="Trabajo de barbería">
+
+      </div>
+
+
+      <div class="gallery-item mirror">
+
+        <img
+          src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85"
+          alt="Corte de cabello">
+
+      </div>
+
+
+      <div class="gallery-item mirror">
+
+        <img
+          src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85"
+          alt="Barbería">
+
+      </div>
+
+
     </div>
 
-    <p class="direccion-principal">
-      Mitre 5103
+  </section>
+
+
+  <!-- =========================
+       RESERVA
+  ========================= -->
+
+  <section class="section reservation-section">
+
+    <h2 class="section-title gold-text">
+      RESERVÁ TU TURNO
+    </h2>
+
+    <div class="reservation-box mirror">
+
+      <form
+        id="reservationForm"
+        onsubmit="enviarWhatsApp(event)">
+
+
+        <label>
+          Nombre y apellido
+        </label>
+
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Ingresá tu nombre y apellido"
+          required>
+
+
+        <label>
+          Servicio
+        </label>
+
+        <select
+          id="servicio"
+          onchange="mostrarDomicilio()"
+          required>
+
+          <option value="">
+            Seleccioná un servicio
+          </option>
+
+          <option>
+            Corte - $18.000
+          </option>
+
+          <option>
+            Corte con barba - $22.000
+          </option>
+
+          <option>
+            Barba - $8.000
+          </option>
+
+          <option>
+            A domicilio - $20.000
+          </option>
+
+          <option>
+            Global - $60.000
+          </option>
+
+          <option>
+            Claritos - $50.000
+          </option>
+
+        </select>
+
+
+        <div
+          id="direccionBox"
+          style="display:none;">
+
+          <label>
+            Dirección para el servicio a domicilio
+          </label>
+
+          <input
+            type="text"
+            id="direccion"
+            placeholder="Ingresá tu dirección">
+
+        </div>
+
+
+        <label>
+          Día
+        </label>
+
+        <input
+          type="date"
+          id="fecha"
+          required>
+
+
+        <label>
+          Horario
+        </label>
+
+        <input
+          type="time"
+          id="hora"
+          required>
+
+
+        <label>
+          Elegí tu barbero
+        </label>
+
+        <select
+          id="barbero"
+          required>
+
+          <option value="">
+            Seleccioná
+          </option>
+
+          <option>
+            Uriel
+          </option>
+
+          <option>
+            Erick
+          </option>
+
+        </select>
+
+
+        <label>
+          Forma de pago
+        </label>
+
+        <select
+          id="pago"
+          required>
+
+          <option value="">
+            Seleccioná
+          </option>
+
+          <option>
+            Efectivo
+          </option>
+
+          <option>
+            Mercado Pago
+          </option>
+
+        </select>
+
+
+        <label>
+          ¿QUERÉS DEJAR PROPINA?
+        </label>
+
+        <select id="propina">
+
+          <option>
+            Sin propina
+          </option>
+
+          <option>
+            $1.000
+          </option>
+
+          <option>
+            $2.000
+          </option>
+
+          <option>
+            $5.000
+          </option>
+
+        </select>
+
+
+        <button
+          type="submit"
+          class="reserve-button mirror">
+
+          RESERVAR TURNO
+
+        </button>
+
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       UBICACIÓN
+  ========================= -->
+
+  <section class="section">
+
+    <h2 class="section-title gold-text">
+      DÓNDE ESTAMOS
+    </h2>
+
+
+    <div class="map mirror">
+
+
+      <iframe
+        src="https://www.google.com/maps?q=Mitre%205103,%20Villa%20Dominico,%20Avellaneda,%20Buenos%20Aires&output=embed"
+        loading="lazy">
+      </iframe>
+
+
+      <div class="map-info">
+
+        <h3>
+          BARBERÍA DOMINICANA
+        </h3>
+
+
+        <p>
+
+          Mitre 5103<br>
+
+          Villa Dominico · Avellaneda<br>
+
+          Buenos Aires
+
+        </p>
+
+
+        <a
+          class="map-button mirror"
+          href="https://www.google.com/maps/search/?api=1&query=Mitre+5103+Villa+Dominico+Avellaneda+Buenos+Aires"
+          target="_blank">
+
+          📍 ABRIR EN GOOGLE MAPS
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       WHATSAPP
+  ========================= -->
+
+  <section class="whatsapp-section">
+
+    <h2 class="gold-text">
+      ¿TENÉS ALGUNA CONSULTA?
+    </h2>
+
+    <p>
+      Escribinos directamente por WhatsApp.
     </p>
-
-    <p class="localidad">
-      Villa Dominico · Avellaneda
-    </p>
-
-
-    <iframe
-      class="mapa"
-      src="https://www.google.com/maps?q=Mitre+5103,+Villa+Dominico,+Avellaneda,+Buenos+Aires&output=embed"
-      loading="lazy">
-    </iframe>
-
 
     <a
-      class="boton-maps"
-      href="https://www.google.com/maps/search/?api=1&query=Mitre+5103,+Villa+Dominico,+Avellaneda,+Buenos+Aires"
+      class="whatsapp-button mirror"
+      href="https://wa.me/541132164988"
       target="_blank">
 
-      📍 VER UBICACIÓN EN GOOGLE MAPS
+      💬 ESCRIBIR POR WHATSAPP
 
     </a>
 
+  </section>
 
-    <div class="dato-titulo" style="margin-top:40px;">
-      WHATSAPP
-    </div>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <strong>
+      BARBERÍA DOMINICANA
+    </strong>
 
     <p>
-      1132164988
+      Villa Dominico · Avellaneda
     </p>
 
-  </div>
+    <p>
+      © 2026 Todos los derechos reservados.
+    </p>
 
-</section>
+  </footer>
 
 
-<!-- ================= WHATSAPP ================= -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-<section class="whatsapp">
+  <script>
 
-  <h2>
-    ¿TENÉS ALGUNA CONSULTA?
-  </h2>
+    function abrirPagina(){
 
-  <p class="numero">
-    1132164988
-  </p>
+      const music =
+        document.getElementById("music");
 
-  <a
-    class="boton"
-    href="https://wa.me/541132164988"
-    target="_blank">
+      music.src =
+        "https://www.youtube.com/embed/aKuivabiOns?autoplay=1&loop=1&playlist=aKuivabiOns&controls=0&rel=0";
 
-    ESCRIBINOS POR WHATSAPP
+      document
+        .getElementById("opening")
+        .style.display = "none";
 
-  </a>
+    }
 
-</section>
 
+    function mostrarDomicilio(){
 
-<!-- ================= FOOTER ================= -->
+      const servicio =
+        document
+          .getElementById("servicio")
+          .value;
 
-<footer>
+      const direccionBox =
+        document
+          .getElementById("direccionBox");
 
-  © 2026 BARBERÍA DOMINICANA
+      const direccion =
+        document
+          .getElementById("direccion");
 
-</footer>
 
+      if(
+        servicio === "A domicilio - $20.000"
+      ){
 
-<script>
+        direccionBox.style.display =
+          "block";
 
-/* ================= ABRIR ================= */
+        direccion.required = true;
 
-function abrirBarberia() {
+      }else{
 
-  const apertura =
-    document.getElementById("apertura");
+        direccionBox.style.display =
+          "none";
 
-  const player =
-    document.getElementById("youtubePlayer");
+        direccion.required = false;
 
-  player.src =
-    "https://www.youtube.com/embed/aKuivabiOns?autoplay=1&loop=1&playlist=aKuivabiOns&controls=0&rel=0";
+        direccion.value = "";
 
-  apertura.classList.add("oculta");
+      }
 
-}
+    }
 
 
-/* ================= DOMICILIO ================= */
+    function enviarWhatsApp(event){
 
-function mostrarDomicilio() {
+      event.preventDefault();
 
-  const servicio =
-    document.getElementById("servicio").value;
 
-  const campoDomicilio =
-    document.getElementById("campoDomicilio");
+      const nombre =
+        document
+          .getElementById("nombre")
+          .value
+          .trim();
 
-  const direccion =
-    document.getElementById("direccionCliente");
 
+      const servicio =
+        document
+          .getElementById("servicio")
+          .value;
 
-  if (servicio === "A domicilio - $20.000") {
 
-    campoDomicilio.style.display = "block";
+      const direccion =
+        document
+          .getElementById("direccion")
+          .value
+          .trim();
 
-    direccion.required = true;
 
-  } else {
+      const fecha =
+        document
+          .getElementById("fecha")
+          .value;
 
-    campoDomicilio.style.display = "none";
 
-    direccion.required = false;
+      const hora =
+        document
+          .getElementById("hora")
+          .value;
 
-    direccion.value = "";
 
-  }
+      const barbero =
+        document
+          .getElementById("barbero")
+          .value;
 
-}
 
+      const pago =
+        document
+          .getElementById("pago")
+          .value;
 
-/* ================= WHATSAPP ================= */
 
-function enviarWhatsApp() {
+      const propina =
+        document
+          .getElementById("propina")
+          .value;
 
-  const nombre =
-    document.getElementById("nombre").value.trim();
 
-  const servicio =
-    document.getElementById("servicio").value;
+      if(
+        !nombre ||
+        !servicio ||
+        !fecha ||
+        !hora ||
+        !barbero ||
+        !pago
+      ){
 
-  const fecha =
-    document.getElementById("fecha").value;
+        alert(
+          "Por favor completá todos los campos."
+        );
 
-  const hora =
-    document.getElementById("hora").value;
+        return;
 
-  const barbero =
-    document.getElementById("barbero").value;
+      }
 
-  const pago =
-    document.getElementById("pago").value;
 
-  const direccionCliente =
-    document.getElementById("direccionCliente").value.trim();
+      if(
+        servicio === "A domicilio - $20.000" &&
+        !direccion
+      ){
 
-  const domicilio =
-    servicio === "A domicilio - $20.000";
+        alert(
+          "Por favor ingresá tu dirección."
+        );
 
+        return;
 
-  const propinaSeleccionada =
-    document.querySelector(
-      'input[name="propina"]:checked'
-    );
+      }
 
 
-  const propina =
-    propinaSeleccionada
-      ? propinaSeleccionada.value
-      : "Sin propina";
+      const fechaPartes =
+        fecha.split("-");
 
 
-  /* VALIDACIÓN */
+      const fechaFormateada =
+        fechaPartes[2] +
+        "/" +
+        fechaPartes[1] +
+        "/" +
+        fechaPartes[0];
 
-  if (
-    nombre === "" ||
-    servicio === "" ||
-    fecha === "" ||
-    hora === "" ||
-    barbero === "" ||
-    pago === ""
-  ) {
 
-    alert(
-      "Por favor completá todos los datos para solicitar el turno."
-    );
+      let ubicacion =
+        "Barbería - Mitre 5103, Villa Dominico, Avellaneda";
 
-    return;
 
-  }
+      if(
+        servicio === "A domicilio - $20.000"
+      ){
 
+        ubicacion =
+          "A domicilio - " +
+          direccion;
 
-  /* VALIDACIÓN DOMICILIO */
+      }
 
-  if (
-    domicilio &&
-    direccionCliente === ""
-  ) {
 
-    alert(
-      "Por favor ingresá la dirección donde querés recibir el servicio."
-    );
+      const mensaje =
 
-    return;
+`💈 *BARBERÍA DOMINICANA*
 
-  }
+👤 *Cliente:* ${nombre}
 
+✂️ *Servicio:* ${servicio}
 
-  const fechaFormateada =
-    fecha.split("-").reverse().join("/");
+📍 *Ubicación:* ${ubicacion}
 
+📅 *Día:* ${fechaFormateada}
 
-  let mensaje =
+⏰ *Horario:* ${hora}
 
-`*SOLICITUD DE TURNO - BARBERÍA DOMINICANA*
+💈 *Barbero:* ${barbero}
 
-👤 Nombre y apellido:
-${nombre}
+💳 *Forma de pago:* ${pago}
 
-💈 Servicio:
-${servicio}
+💰 *Propina:* ${propina}
 
-📅 Día:
-${fechaFormateada}
+Quiero confirmar mi turno.`;
 
-🕐 Horario:
-${hora}
 
-✂️ Barbero:
-${barbero}
+      const url =
+        "https://wa.me/541132164988?text=" +
+        encodeURIComponent(mensaje);
 
-💳 Forma de pago:
-${pago}
 
-🎁 Propina:
-${propina}`;
+      window.open(
+        url,
+        "_blank"
+      );
 
+    }
 
-  if (domicilio) {
+  </script>
 
-    mensaje +=
-
-`
-
-🏠 Dirección del servicio:
-${direccionCliente}`;
-
-  } else {
-
-    mensaje +=
-
-`
-
-📍 Dirección de la barbería:
-Mitre 5103, Villa Dominico, Avellaneda`;
-
-  }
-
-
-  const telefono =
-    "541132164988";
-
-
-  const url =
-    "https://wa.me/" +
-    telefono +
-    "?text=" +
-    encodeURIComponent(mensaje);
-
-
-  window.open(url, "_blank");
-
-}
-
-</script>
 
 </body>
+
 </html>
