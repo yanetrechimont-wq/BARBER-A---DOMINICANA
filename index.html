@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,10 +25,6 @@ body{
     color:#fff;
     overflow-x:hidden;
 }
-
-/* =========================
-   EFECTO DE FONDO
-========================= */
 
 body::before{
     content:"";
@@ -129,26 +126,43 @@ header{
     animation:aparecer 1.8s ease;
 }
 
+/* =========================
+   BARBERÍA DESTACADA
+========================= */
+
 .hero h1{
-    font-size:clamp(45px,10vw,100px);
+    font-size:clamp(60px,15vw,150px);
+    font-weight:900;
     color:#d4af37;
-    letter-spacing:7px;
+    letter-spacing:10px;
+    line-height:.95;
+    text-transform:uppercase;
+
     text-shadow:
-        0 0 10px #d4af37,
-        0 0 25px rgba(212,175,55,.7);
-    animation:brillo 2s infinite alternate;
+        0 0 5px #fff,
+        0 0 12px #d4af37,
+        0 0 25px #d4af37,
+        0 0 50px rgba(212,175,55,.9),
+        0 0 90px rgba(212,175,55,.5);
+
+    animation:
+        brilloBarberia 2s infinite alternate,
+        entradaBarberia 1.5s ease;
 }
 
 .hero h2{
-    margin-top:15px;
-    font-size:clamp(22px,5vw,40px);
-    letter-spacing:5px;
+    margin-top:22px;
+    font-size:clamp(20px,5vw,38px);
+    letter-spacing:8px;
+    color:#fff;
+    text-shadow:0 0 8px rgba(255,255,255,.5);
 }
 
 .hero p{
     margin-top:20px;
     color:#ddd;
     font-size:18px;
+    letter-spacing:3px;
 }
 
 /* =========================
@@ -406,6 +420,7 @@ footer strong{
 ========================= */
 
 @keyframes aparecer{
+
     from{
         opacity:0;
         transform:translateY(30px);
@@ -415,9 +430,11 @@ footer strong{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 @keyframes brillo{
+
     from{
         text-shadow:
             0 0 5px rgba(212,175,55,.5),
@@ -429,9 +446,39 @@ footer strong{
             0 0 15px rgba(212,175,55,.9),
             0 0 35px rgba(212,175,55,.6);
     }
+
+}
+
+@keyframes brilloBarberia{
+
+    from{
+        transform:scale(1);
+        filter:brightness(1);
+    }
+
+    to{
+        transform:scale(1.04);
+        filter:brightness(1.35);
+    }
+
+}
+
+@keyframes entradaBarberia{
+
+    from{
+        opacity:0;
+        transform:scale(.7) translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+
 }
 
 @keyframes pulsar{
+
     0%{
         transform:scale(1);
     }
@@ -443,6 +490,7 @@ footer strong{
     100%{
         transform:scale(1);
     }
+
 }
 
 @media(max-width:600px){
@@ -462,6 +510,15 @@ footer strong{
     .foto{
         height:260px;
     }
+
+    .hero h1{
+        letter-spacing:5px;
+    }
+
+    .hero h2{
+        letter-spacing:5px;
+    }
+
 }
 
 </style>
@@ -483,7 +540,10 @@ footer strong{
 
         <p>Tu estilo comienza acá</p>
 
-        <button class="boton-inicio" onclick="abrirPagina()">
+        <button
+            class="boton-inicio"
+            onclick="abrirPagina()"
+        >
             ABRIR
         </button>
 
@@ -531,40 +591,72 @@ footer strong{
 
         <h2>NUESTROS SERVICIOS</h2>
 
-        <p>Elegí tu estilo y reservá tu turno</p>
+        <p>
+            Elegí tu estilo y reservá tu turno
+        </p>
 
     </div>
 
     <div class="servicios">
 
         <div class="servicio">
+
             <h3>CORTE</h3>
-            <div class="precio">$18.000</div>
+
+            <div class="precio">
+                $18.000
+            </div>
+
         </div>
 
         <div class="servicio">
+
             <h3>CORTE CON BARBA</h3>
-            <div class="precio">$22.000</div>
+
+            <div class="precio">
+                $22.000
+            </div>
+
         </div>
 
         <div class="servicio">
+
             <h3>BARBA</h3>
-            <div class="precio">$8.000</div>
+
+            <div class="precio">
+                $8.000
+            </div>
+
         </div>
 
         <div class="servicio">
+
             <h3>A DOMICILIO</h3>
-            <div class="precio">$20.000</div>
+
+            <div class="precio">
+                $20.000
+            </div>
+
         </div>
 
         <div class="servicio">
+
             <h3>GLOBAL</h3>
-            <div class="precio">$60.000</div>
+
+            <div class="precio">
+                $60.000
+            </div>
+
         </div>
 
         <div class="servicio">
+
             <h3>CLARITOS</h3>
-            <div class="precio">$50.000</div>
+
+            <div class="precio">
+                $50.000
+            </div>
+
         </div>
 
     </div>
@@ -581,28 +673,30 @@ footer strong{
 
         <h2>NUESTRO TRABAJO</h2>
 
-        <p>Calidad y detalle en cada corte</p>
+        <p>
+            Calidad y detalle en cada corte
+        </p>
 
     </div>
 
     <div class="galeria">
 
         <div class="foto">
+
             <img
                 src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=90"
-                alt="Barbería">
+                alt="Barbería"
+            >
+
         </div>
 
         <div class="foto">
+
             <img
                 src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=90"
-                alt="Corte de cabello">
-        </div>
+                alt="Corte de cabello"
+            >
 
-        <div class="foto">
-            <img
-                src="https://images.unsplash.com/photo-1599351431202-1e0f0d3c8e5d?auto=format&fit=crop&w=900&q=90"
-                alt="Barbero">
         </div>
 
     </div>
@@ -619,7 +713,9 @@ footer strong{
 
         <h2>RESERVÁ TU TURNO</h2>
 
-        <p>Completá tus datos y te contactamos por WhatsApp</p>
+        <p>
+            Completá tus datos y te contactamos por WhatsApp
+        </p>
 
     </div>
 
@@ -886,20 +982,13 @@ footer strong{
 
 <script>
 
-/* =========================
-   ABRIR PÁGINA + MÚSICA
-========================= */
-
 function abrirPagina(){
 
-    const inicio = document.getElementById("inicio");
+    const inicio =
+        document.getElementById("inicio");
 
-    const music = document.getElementById("musicFrame");
-
-    /*
-       NUEVA CANCIÓN:
-       https://youtu.be/ZNVrYuTBbMM
-    */
+    const music =
+        document.getElementById("musicFrame");
 
     music.src =
         "https://www.youtube.com/embed/ZNVrYuTBbMM?autoplay=1&loop=1&playlist=ZNVrYuTBbMM&controls=0&rel=0";
@@ -913,11 +1002,6 @@ function abrirPagina(){
     },1000);
 
 }
-
-
-/* =========================
-   MOSTRAR DIRECCIÓN
-========================= */
 
 function mostrarDomicilio(){
 
@@ -950,11 +1034,6 @@ function mostrarDomicilio(){
     }
 
 }
-
-
-/* =========================
-   ENVIAR RESERVA A WHATSAPP
-========================= */
 
 function enviarWhatsApp(event){
 
